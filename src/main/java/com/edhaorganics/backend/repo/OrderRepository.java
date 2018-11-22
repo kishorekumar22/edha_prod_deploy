@@ -45,7 +45,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 	
 	@Override
 	@EntityGraph(attributePaths = "products")
-	@Query("FROM Order order")
+	@Query("FROM Order order where order.id=?1")
 	Order getOne(Long id);
 
 }
